@@ -1,0 +1,33 @@
+name: Deploy GitHub Pages
+
+on:
+    push:
+        branches: ['main']
+
+jobs:
+    build:
+        runs-on: ubuntu-20.04
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Install PNPM
+              uses: pnpm/action-setup@v2.2.2
+              with:
+                  version: 7
+
+            - name: Install Node.js 16
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: 'pnpm'
+
+            - run: pnpm install
+            - run: pnpm build
+
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
