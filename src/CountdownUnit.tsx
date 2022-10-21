@@ -19,7 +19,9 @@ export const CountdownUnit: FC<CountdownUnitProps> = ({ time, text }) => {
                 padding: '4px',
                 borderRadius: '50%',
                 borderColor: 'orange',
-                borderStyle: 'dotted',
+                borderStyle: 'double',
+                borderWidth: 'medium',
+                backgroundColor: '#ffffff',
             }}
         >
             <div>{time.toString().padStart(2, '0')}</div>

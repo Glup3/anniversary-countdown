@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { CountdownUnit } from './CountdownUnit'
+import { HeartMessage } from './HeartMessage'
 
 import { useCountdown } from './useCountdown'
 
@@ -11,7 +12,7 @@ export const CountdownTimer: FC<CountdownTimerProps> = ({ targetDate }) => {
     const [days, hours, minutes, seconds] = useCountdown(targetDate)
 
     if (days + hours + minutes + seconds <= 0) {
-        return <div>Insert Insane Confetti Animation</div>
+        return <HeartMessage />
     }
 
     return (
