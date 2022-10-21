@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+import { CountdownUnit } from './CountdownUnit'
+
 import { useCountdown } from './useCountdown'
 
 interface CountdownTimerProps {
@@ -9,53 +11,19 @@ export const CountdownTimer: FC<CountdownTimerProps> = ({ targetDate }) => {
     const [days, hours, minutes, seconds] = useCountdown(targetDate)
 
     if (days + hours + minutes + seconds <= 0) {
-        return <ExpiredNotice />
-    } else {
-        return <ShowCounter days={days} hours={hours} minutes={minutes} seconds={seconds} />
+        return <div>Insert Insane Confetti Animation</div>
     }
-}
 
-const ExpiredNotice = () => {
     return (
-        <div className="expired-notice">
-            <span>Expired!!!</span>
-            <p>Please select a future date and time.</p>
-        </div>
-    )
-}
-
-interface ShowCounterProps {
-    days: number
-    hours: number
-    minutes: number
-    seconds: number
-}
-
-const ShowCounter: FC<ShowCounterProps> = ({ days, hours, minutes, seconds }) => {
-    return (
-        <div className="show-counter">
-            <DateTimeDisplay value={days} type={'Days'} isDanger={days <= 3} />
-            <p>:</p>
-            <DateTimeDisplay value={hours} type={'Hours'} isDanger={false} />
-            <p>:</p>
-            <DateTimeDisplay value={minutes} type={'Mins'} isDanger={false} />
-            <p>:</p>
-            <DateTimeDisplay value={seconds} type={'Seconds'} isDanger={false} />
-        </div>
-    )
-}
-
-interface DateTimeDisplayProps {
-    value: number
-    type: string
-    isDanger: boolean
-}
-
-const DateTimeDisplay: FC<DateTimeDisplayProps> = ({ value, type, isDanger }) => {
-    return (
-        <div className={isDanger ? 'countdown danger' : 'countdown'}>
-            <p>{value}</p>
-            <span>{type}</span>
+        <div
+            style={{
+                display: 'flex',
+            }}
+        >
+            <CountdownUnit time={days} text="Days" />
+            <CountdownUnit time={hours} text="Hours" />
+            <CountdownUnit time={minutes} text="Mins" />
+            <CountdownUnit time={seconds} text="Sec" />
         </div>
     )
 }
