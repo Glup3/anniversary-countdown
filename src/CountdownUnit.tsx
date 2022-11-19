@@ -5,6 +5,12 @@ interface CountdownUnitProps {
     text: string
 }
 
+function getBorderColor(time: number) {
+    if (time == 0) return 'red'
+    if (time <= 5) return 'green'
+    return 'orange'
+}
+
 export const CountdownUnit: FC<CountdownUnitProps> = ({ time, text }) => {
     return (
         <div
@@ -18,7 +24,7 @@ export const CountdownUnit: FC<CountdownUnitProps> = ({ time, text }) => {
                 margin: '0px 4px',
                 padding: '4px',
                 borderRadius: '50%',
-                borderColor: 'orange',
+                borderColor: getBorderColor(time),
                 borderStyle: 'double',
                 borderWidth: 'medium',
                 backgroundColor: '#ffffff',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CountdownTimer } from './CountdownTimer'
+import { TotalDaysCounter } from './TotalDaysCounter'
 
 const ANNIVERSARY_DATE = new Date(2022, 9, 20)
 const ANNIVERSARY_MILESTONES: { days: number; text: string }[] = [
@@ -12,7 +13,7 @@ const ANNIVERSARY_MILESTONES: { days: number; text: string }[] = [
         text: '10 Tage',
     },
     {
-        days: 30,
+        days: 31,
         text: '1 Monat',
     },
     {
@@ -57,6 +58,8 @@ function App() {
     const [selectedMilestoneIndex, setSelectedMilestoneIndex] = useState<number>(getLatestMilestone(ANNIVERSARY_DATE))
     const targetDate = addDays(ANNIVERSARY_DATE, ANNIVERSARY_MILESTONES[selectedMilestoneIndex].days)
 
+    console.log('what')
+
     const onMilestoneChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedMilestoneIndex(Number(e.target.value))
     }
@@ -74,7 +77,7 @@ function App() {
                     marginBottom: '20px',
                 }}
             >
-                Anniversary ❤️
+                Annaversary ❤️
             </h1>
 
             <div
@@ -84,7 +87,7 @@ function App() {
             >
                 <span
                     style={{
-                        marginRight: '50px',
+                        marginRight: '20px',
                         fontWeight: 'bold',
                     }}
                 >
@@ -100,6 +103,8 @@ function App() {
             </div>
 
             <CountdownTimer targetDate={targetDate} />
+
+            <TotalDaysCounter startDate={ANNIVERSARY_DATE} />
         </div>
     )
 }
