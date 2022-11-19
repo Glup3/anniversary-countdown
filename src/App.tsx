@@ -58,7 +58,7 @@ function App() {
     const [selectedMilestoneIndex, setSelectedMilestoneIndex] = useState<number>(getLatestMilestone(ANNIVERSARY_DATE))
     const targetDate = addDays(ANNIVERSARY_DATE, ANNIVERSARY_MILESTONES[selectedMilestoneIndex].days)
 
-    console.log('what')
+    console.log('I Love You Anna ❤️')
 
     const onMilestoneChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedMilestoneIndex(Number(e.target.value))
