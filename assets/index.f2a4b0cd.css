@@ -1,1 +1,0 @@
-.heart-message{animation:beat 1s infinite alternate}@keyframes beat{to{transform:scale(1.2)}}*{font-family:Arial}body{background-color:#f9f9f9;opacity:.8;background-image:radial-gradient(#444cf7 .4px,transparent .4px),radial-gradient(#444cf7 .4px,#f9f9f9 .4px);background-size:16px 16px;background-position:0 0,8px 8px}
