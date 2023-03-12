@@ -1,62 +1,70 @@
 import React, { useState } from 'react'
+import { type Duration, add } from 'date-fns'
 import { CountdownTimer } from './CountdownTimer'
 import { TotalDaysCounter } from './TotalDaysCounter'
 
+interface Milestone {
+    text: string
+    duration: Duration
+}
+
 const ANNIVERSARY_DATE = new Date(2022, 9, 20)
-const ANNIVERSARY_MILESTONES: { days: number; text: string }[] = [
+const ANNIVERSARY_MILESTONES: Milestone[] = [
     {
-        days: 1,
         text: '1 Tag',
+        duration: { days: 1 },
     },
     {
-        days: 10,
         text: '10 Tage',
+        duration: { days: 10 },
     },
     {
-        days: 31,
         text: '1 Monat',
+        duration: { months: 1 },
     },
     {
-        days: 100,
+        text: '3 Monate',
+        duration: { months: 3 },
+    },
+    {
         text: '100 Tage',
+        duration: { days: 100 },
     },
     {
-        days: 200,
-        text: '200 Tage',
+        text: '6 Monate',
+        duration: { months: 6 },
     },
     {
-        days: 300,
-        text: '300 Tage',
-    },
-    {
-        days: 365,
         text: '1 Jahr',
+        duration: { years: 1 },
     },
     {
-        days: 500,
         text: '500 Tage',
+        duration: { days: 500 },
     },
     {
-        days: 1000,
+        text: '2 Jahre',
+        duration: { years: 2 },
+    },
+    {
+        text: '3 Jahre',
+        duration: { years: 3 },
+    },
+    {
         text: '1000 Tage',
+        duration: { days: 1000 },
     },
 ]
 
-function addDays(date: Date, days: number): Date {
-    const newDate = new Date(date)
-    newDate.setDate(newDate.getDate() + days)
-    return newDate
-}
-
 function getLatestMilestone(date: Date): number {
     const today = new Date()
-    const index = ANNIVERSARY_MILESTONES.findIndex((m) => today < addDays(date, m.days))
+    const index = ANNIVERSARY_MILESTONES.findIndex((m) => today < add(date, m.duration))
     return index !== -1 ? index : ANNIVERSARY_MILESTONES.length - 1
 }
 
 function App() {
     const [selectedMilestoneIndex, setSelectedMilestoneIndex] = useState<number>(getLatestMilestone(ANNIVERSARY_DATE))
-    const targetDate = addDays(ANNIVERSARY_DATE, ANNIVERSARY_MILESTONES[selectedMilestoneIndex].days)
+    const targetDate = add(ANNIVERSARY_DATE, ANNIVERSARY_MILESTONES[selectedMilestoneIndex].duration)
 
     console.log('I Love You Anna ❤️')
 
@@ -95,7 +103,7 @@ function App() {
                 </span>
                 <select value={selectedMilestoneIndex} onChange={onMilestoneChange}>
                     {ANNIVERSARY_MILESTONES.map((option, index) => (
-                        <option key={option.days} value={index}>
+                        <option key={option.text} value={index}>
                             {option.text}
                         </option>
                     ))}
