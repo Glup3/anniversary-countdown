@@ -8,7 +8,7 @@ interface Milestone {
     duration: Duration
 }
 
-const ANNIVERSARY_DATE = new Date(2022, 9, 20)
+const ANNIVERSARY_DATE = new Date('2022-10-20')
 const ANNIVERSARY_MILESTONES: Milestone[] = [
     {
         text: '1 Tag',
