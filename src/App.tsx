@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Duration, add } from 'date-fns'
+import { type Duration, add, format } from 'date-fns'
 import { CountdownTimer } from './CountdownTimer'
 import { TotalDaysCounter } from './TotalDaysCounter'
 
@@ -99,7 +99,7 @@ function App() {
                         fontWeight: 'bold',
                     }}
                 >
-                    {ANNIVERSARY_DATE.toLocaleDateString()}
+                    {format(ANNIVERSARY_DATE, 'dd.MM.yyyy')}
                 </span>
                 <select value={selectedMilestoneIndex} onChange={onMilestoneChange}>
                     {ANNIVERSARY_MILESTONES.map((option, index) => (
@@ -108,6 +108,14 @@ function App() {
                         </option>
                     ))}
                 </select>
+                <span
+                    style={{
+                        marginLeft: '20px',
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {format(targetDate, 'dd.MM.yyyy')}
+                </span>
             </div>
 
             <CountdownTimer targetDate={targetDate} />
