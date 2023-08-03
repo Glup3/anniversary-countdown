@@ -2,13 +2,13 @@ import React from 'react'
 import { format } from 'date-fns'
 import { CountdownTimer } from './CountdownTimer'
 
-const DISNEYLAND_DATE = new Date('2023-09-10')
-
-interface DisneylandTimerProps {
+interface TimerBoxProps {
     style?: React.CSSProperties
+    targetDate: Date
+    title: string
 }
 
-export const DisneylandTimer = ({ style }: DisneylandTimerProps) => {
+export const TimerBox = ({ style, targetDate, title }: TimerBoxProps) => {
     return (
         <div
             style={{
@@ -18,9 +18,11 @@ export const DisneylandTimer = ({ style }: DisneylandTimerProps) => {
                 alignItems: 'center',
             }}
         >
-            <h2>Disneyland {format(DISNEYLAND_DATE, 'dd.MM.yyyy')}</h2>
+            <h2>
+                {title} {format(targetDate, 'dd.MM.yyyy')}
+            </h2>
 
-            <CountdownTimer targetDate={DISNEYLAND_DATE} />
+            <CountdownTimer targetDate={targetDate} />
         </div>
     )
 }
