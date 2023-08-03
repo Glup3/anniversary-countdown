@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/anniversary-countdown/sw.js', { scope: '/anniversary-countdown/' })})}
