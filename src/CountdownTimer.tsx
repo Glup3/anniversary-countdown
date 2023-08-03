@@ -6,13 +6,14 @@ import { useCountdown } from './useCountdown'
 
 interface CountdownTimerProps {
     targetDate: Date
+    showHeartMessage?: boolean
 }
 
-export const CountdownTimer: FC<CountdownTimerProps> = ({ targetDate }) => {
+export const CountdownTimer: FC<CountdownTimerProps> = ({ targetDate, showHeartMessage }) => {
     const [days, hours, minutes, seconds] = useCountdown(targetDate)
 
     if (days + hours + minutes + seconds <= 0) {
-        return <HeartMessage />
+        return showHeartMessage ? <HeartMessage /> : null
     }
 
     return (

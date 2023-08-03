@@ -114,7 +114,7 @@ export const AnnaversaryTimer = () => {
                 </span>
             </div>
 
-            <CountdownTimer targetDate={targetDate} />
+            <CountdownTimer targetDate={targetDate} showHeartMessage={true} />
 
             <TotalDaysCounter startDate={ANNIVERSARY_DATE} />
         </div>
