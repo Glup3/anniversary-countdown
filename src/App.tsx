@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { type Duration, add, format } from 'date-fns'
 import { CountdownTimer } from './CountdownTimer'
 import { TotalDaysCounter } from './TotalDaysCounter'
+import { DisneylandTimer } from './DisneylandTimer'
 
 interface Milestone {
     text: string
@@ -121,6 +122,12 @@ function App() {
             <CountdownTimer targetDate={targetDate} />
 
             <TotalDaysCounter startDate={ANNIVERSARY_DATE} />
+
+            <DisneylandTimer
+                style={{
+                    marginTop: '20px',
+                }}
+            />
         </div>
     )
 }
