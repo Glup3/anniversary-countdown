@@ -9,9 +9,8 @@ const manifestForPWA: Partial<VitePWAOptions> = {
         name: 'Annaversary',
         short_name: 'Annaversary',
         description: 'All Annaversaries in one place',
-        start_url: '/',
+        start_url: '/anniversary-countdown/',
         background_color: '#f9f9f9',
-        theme_color: '#ff953e',
         icons: [
             {
                 src: 'pwa-192x192.png',
