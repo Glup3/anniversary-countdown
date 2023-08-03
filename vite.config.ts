@@ -13,13 +13,13 @@ const manifestForPWA: Partial<VitePWAOptions> = {
         background_color: '#f9f9f9',
         icons: [
             {
-                src: 'pwa-192x192.png',
-                sizes: '192x192',
+                src: 'pwa-64x64.png',
+                sizes: '64x64',
                 type: 'image/png',
             },
             {
-                src: 'pwa-512x512.png',
-                sizes: '512x512',
+                src: 'pwa-192x192.png',
+                sizes: '192x192',
                 type: 'image/png',
             },
             {
@@ -29,7 +29,7 @@ const manifestForPWA: Partial<VitePWAOptions> = {
                 purpose: 'any',
             },
             {
-                src: 'pwa-512x512.png',
+                src: 'maskable-icon-512x512.png',
                 sizes: '512x512',
                 type: 'image/png',
                 purpose: 'maskable',
