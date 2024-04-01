@@ -16,7 +16,7 @@ function calculateNextBirthday(birthday: string): Date {
 }
 
 const OTHER_DATES = [
-    { title: 'Singapore', targetDate: new Date('2024-09-04) },
+    { title: 'Singapore', targetDate: new Date('2024-09-04') },
     { title: 'Disneyland', targetDate: new Date('2023-09-10') },
     { title: 'London', targetDate: new Date('2023-11-02') },
     { title: 'Kreuzfahrt', targetDate: new Date('2023-12-23') },
